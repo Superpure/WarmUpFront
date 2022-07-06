@@ -28,7 +28,10 @@ export default function NewsList() {
     const [news, setNews] = useState([])
         
     useEffect(() => {
-        axios.get('http://54.164.4.52:3001/new').then(
+        axios.get('http://54.164.4.52:3001/new', {
+            httpAgent: new http.Agent({ keepAlive: true }),
+            httpsAgent: new https.Agent({ keepAlive: true }),
+        }).then(
             res => {
                 setNews(res.data)
             }
@@ -37,7 +40,10 @@ export default function NewsList() {
         setInterval(() => {
             const date = new Date()
             if(parseInt(date.getMinutes()) === 1 && parseInt(date.getSeconds()) === 0){
-                axios.get('http://54.164.4.52:3001/new').then(
+                axios.get('http://54.164.4.52:3001/new', {
+                    httpAgent: new http.Agent({ keepAlive: true }),
+                    httpsAgent: new https.Agent({ keepAlive: true }),
+                }).then(
                     res => {
                         setNews(res.data)
                     }
@@ -48,8 +54,14 @@ export default function NewsList() {
     }, []);
 
     async function deleteNew(element){
-        await axios.put(`http://54.164.4.52:3001/new/update/${element.story_id.toString()}`)
-        axios.get('http://54.164.4.52:3001/new').then(
+        await axios.put(`http://54.164.4.52:3001/new/update/${element.story_id.toString()}`, {
+            httpAgent: new http.Agent({ keepAlive: true }),
+            httpsAgent: new https.Agent({ keepAlive: true }),
+        })
+        axios.get('http://54.164.4.52:3001/new', {
+            httpAgent: new http.Agent({ keepAlive: true }),
+            httpsAgent: new https.Agent({ keepAlive: true }),
+        }).then(
             res => {
                 setNews(res.data)
             }
