@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAuth } from '../context/authContext'
 
 const styles = {
     header: {
@@ -32,12 +33,20 @@ const styles = {
 }
 
 export default function Header() {
+
+    const { logout } = useAuth()
+
+    async function handleLogout(){
+        await logout()
+    }
+
     return (
         <div style={styles.header}>
             <div style={styles.container}>
                 <h1 style={styles.h1}>HN Feed</h1>
                 <p style={styles.p}>We {'<3'} hacker news!</p>    
             </div>
+            <button onClick={() => handleLogout()}>Cerrar sesión</button>
         </div>
     )
 }
