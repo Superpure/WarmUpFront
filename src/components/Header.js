@@ -10,7 +10,9 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         boxShadow: '0 5px 10px rgb(0,0,0,.9)',
-        flexShrink: '0'
+        flexShrink: '0',
+        position: "relative",
+        justifyContent: "space-between"
     },
     container: {
         display: 'flex',

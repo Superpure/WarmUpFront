@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/authContext';
-import { Home } from './routes/Home';
+import Home from './routes/Home';
 import { Login } from './routes/Login';
 import { ProtectedRoute } from './routes/ProtectedRoute';
 
