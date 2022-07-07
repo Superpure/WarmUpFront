@@ -26,7 +26,7 @@ export const Login = () => {
 
     function handleSubmit(e){
         e.preventDefault()
-        login(user.email, user.password).then(() => navigate('/home')).catch(alert("Credenciales incorrectas"))    
+        login(user.email, user.password).then(() => navigate('/home'))
     }
 
   return (
